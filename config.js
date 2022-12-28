@@ -21,22 +21,20 @@
  */
 
 module.exports  = {
-    base: 'https://www.xfinity.com/mobile/', // base url of the website
-    urls: [
-        'https://www.xfinity.com/mobile' // URLs to scan (works only if autoCrawl is false)
-    ],
-    strictPresence: 'https://www.xfinity.com/mobile/', // Crawl links only if this is present
-    ignoreStrings: [ // Ignore any link with this string
+    base: 'https://buytrucknbus.tatamotors.com', // website url
+
+    strictPresence: 'www.xfinity.com/mobile/', // url will be added to xml only if this exists
+    ignoreStrings: [ // ignore any url that has these texts
         'img.xfinity',
         'styles.',
         'm.me'
     ],
-    autoCrawl: false, // Automatically crawl through internal links and create a sitemap
-    crawlLevel: 1,
-    pageLoad: {
-        waitUntil: 'networkidle0', // puppeteer config
+    autoCrawl: yes, // Recursive crawling functionality
+    crawlLevel: 3, // Recursive calling for pages upto 'x' levels
+    pageLoad: { // page load configuration
+        waitUntil: 'networkidle0',
         timeout: 3000000
     },
-    disableHashRoutes: true,
+    disableHashRoutes: false, // disable routes with Hash in it
     sortBy: 'asc' // 'asc' | 'dsc' | 'none'
 }
